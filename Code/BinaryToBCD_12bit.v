@@ -3,8 +3,7 @@
  * File: BinaryToBCD_12bit.v
  * Module: BinaryToBCD_12bit
  * Project: FPGA Binary Conversion Game (Xilinx Nexys A7, 100 MHz system clock)
- * Author: <your-name>
- * Last Edited: 2025-10-23 05:24 UTC
+ * Author: <Ozan Ekame Pekgoz>
  *
  * Summary:
  *   Converts a 12-bit binary value into four BCD digits (thousands, hundreds, tens, ones).
