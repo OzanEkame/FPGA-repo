@@ -68,7 +68,7 @@ All logic is implemented purely in **Verilog** — no processors or firmware.
 | [`BinaryToBCD_12bit_tb.v`](Code/BinaryToBCD_12bit_tb.v) | Validates Binary→BCD conversion |
 | [`DisplayMultiplexer_tb.v`](Code/DisplayMultiplexer_tb.v) | Tests digit scanning and refresh rate |
 | [`SevenSegmentDecoder_tb.v`](Code/SevenSegmentDecoder_tb.v) | Verifies segment encoding for 0–9 |
-| `TopLevelGame_tb.v` | Simulates entire game logic integration |
+| [`TopLevelGame_tb.v`](Code/TopLevelGame_tb.v) | Simulates entire game logic integration |
 
 ---
 
