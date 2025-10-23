@@ -3,8 +3,7 @@
  * File: Debounce.v
  * Module: Debounce
  * Project: FPGA Binary Conversion Game (Xilinx Nexys A7, 100 MHz system clock)
- * Author: <your-name>
- * Last Edited: 2025-10-23 05:24 UTC
+ * Author: <Ozan Ekame Pekgoz>
  *
  * Summary:
  *   Debounces a noisy mechanical input using a 2-FF synchronizer plus a counter-based integrator.
