@@ -4,8 +4,7 @@
  * File: DisplayMultiplexer_tb.v
  * Module: DisplayMultiplexer_tb
  * Project: FPGA Binary Conversion Game (Xilinx Nexys A7, 100 MHz system clock)
- * Author: <your-name>
- * Last Edited: 2025-10-23 05:24 UTC
+ * Author: <Ozan Ekame Pekgoz>
  *
  * Summary:
  *   Module description not provided. Fill in details as needed.
