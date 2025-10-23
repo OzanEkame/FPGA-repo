@@ -49,12 +49,12 @@ All game logic is implemented purely in hardware with Verilog — no processors,
 
 | File | Description |
 |------|--------------|
-| [`rtl/TopLevelGame.v`](rtl/TopLevelGame.v) | Main game FSM and module integration |
-| [`rtl/LFSR.v`](rtl/LFSR.v) | 16-bit pseudo-random number generator |
-| [`rtl/Debounce.v`](rtl/Debounce.v) | Two-flip-flop synchronizer + integrator |
-| [`rtl/BinaryToBCD_12bit.v`](rtl/BinaryToBCD_12bit.v) | Binary-to-BCD conversion (double-dabble) |
-| [`rtl/DisplayMultiplexer.v`](rtl/DisplayMultiplexer.v) | 7-segment display multiplexer |
-| [`rtl/SevenSegmentDecoder.v`](rtl/SevenSegmentDecoder.v) | Binary-to-7-segment code encoder |
+| [`Code/TopLevelGame.v`](rtl/TopLevelGame.v) | Main game FSM and module integration |
+| [`Code/LFSR.v`](rtl/LFSR.v) | 16-bit pseudo-random number generator |
+| [`Code/Debounce.v`](rtl/Debounce.v) | Two-flip-flop synchronizer + integrator |
+| [`Code/BinaryToBCD_12bit.v`](rtl/BinaryToBCD_12bit.v) | Binary-to-BCD conversion (double-dabble) |
+| [`Code/DisplayMultiplexer.v`](rtl/DisplayMultiplexer.v) | 7-segment display multiplexer |
+| [`Code/SevenSegmentDecoder.v`](rtl/SevenSegmentDecoder.v) | Binary-to-7-segment code encoder |
 
 Each module is individually verified through simulation.
 
@@ -64,11 +64,11 @@ Each module is individually verified through simulation.
 
 | Testbench | Purpose |
 |------------|----------|
-| [`sim/TopLevelGame_tb.v`](sim/TopLevelGame_tb.v) | Full game FSM and integration test |
-| [`sim/Debounce_tb.v`](sim/Debounce_tb.v) | Input debounce verification |
-| [`sim/BinaryToBCD_12bit_tb.v`](sim/BinaryToBCD_12bit_tb.v) | Binary→BCD conversion validation |
-| [`sim/DisplayMultiplexer_tb.v`](sim/DisplayMultiplexer_tb.v) | Refresh rate and digit cycle testing |
-| [`sim/SevenSegmentDecoder_tb.v`](sim/SevenSegmentDecoder_tb.v) | Segment encoding validation |
+| [`Code/TopLevelGame_tb.v`](sim/TopLevelGame_tb.v) | Full game FSM and integration test |
+| [`Code/Debounce_tb.v`](sim/Debounce_tb.v) | Input debounce verification |
+| [`Code/BinaryToBCD_12bit_tb.v`](sim/BinaryToBCD_12bit_tb.v) | Binary→BCD conversion validation |
+| [`Code/DisplayMultiplexer_tb.v`](sim/DisplayMultiplexer_tb.v) | Refresh rate and digit cycle testing |
+| [`Code/SevenSegmentDecoder_tb.v`](sim/SevenSegmentDecoder_tb.v) | Segment encoding validation |
 
 Waveform captures can be placed under `sim/waves/` for visual verification.
 
@@ -116,7 +116,7 @@ Waveform captures can be placed under `sim/waves/` for visual verification.
 
 ## Demo
 
-Add a picture of your working board here:
+
 
 ```
 ![Nexys A7 Binary Conversion Game Demo](docs/demo_photo.jpg)
