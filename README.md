@@ -117,7 +117,7 @@ All logic is implemented purely in **Verilog** — no processors or firmware.
 
 
 ```
-![Nexys A7 Binary Conversion Game Demo](docs/demo_photo.jpg)
+![Nexys A7 Binary Conversion Game Demo](Docs/demo.jpg)
 ```
 
 ---
