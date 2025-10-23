@@ -11,7 +11,7 @@ module clk_divider(
     );
 	 
 	 
-parameter toggle_value = XXXXXXXX; // TODO: Calculate correct value
+parameter toggle_value = 50000; 
 
 	 
 reg[32:0] cnt;
