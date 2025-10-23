@@ -1,11 +1,10 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 /*------------------------------------------------------------------------------
- * File: clk_divider.v
- * Module: clk_divider
+ * File: ClockDivider.v
+ * Module: ClockDivider
  * Project: FPGA Binary Conversion Game (Xilinx Nexys A7, 100 MHz system clock)
- * Author: <your-name>
- * Last Edited: 2025-10-23 05:24 UTC
+ * Author: <Ozan Ekame Pekgoz>
  *
  * Summary:
  *   Divides the 100 MHz board clock down to a slower clock for human-visible logic (display, FSM, etc.).
@@ -28,7 +27,7 @@ module clk_divider(
     );
 	 
 	 
-parameter toggle_value = XXXXXXXX; // TODO: Calculate correct value
+parameter toggle_value = 500000; // TODO: Calculate correct value
 
 	 
 reg[32:0] cnt;
