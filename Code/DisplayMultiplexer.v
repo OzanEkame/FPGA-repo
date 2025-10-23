@@ -3,8 +3,7 @@
  * File: DisplayMultiplexer.v
  * Module: DisplayMultiplexer
  * Project: FPGA Binary Conversion Game (Xilinx Nexys A7, 100 MHz system clock)
- * Author: <your-name>
- * Last Edited: 2025-10-23 05:24 UTC
+ * Author: <Ozan Ekame Pekgoz>
  *
  * Summary:
  *   Time-multiplexes four BCD digits onto a shared 7-segment bus.
