@@ -57,7 +57,7 @@ All logic is implemented purely in **Verilog** — no processors or firmware.
 | [`Debounce.v`](Code/Debounce.v) | Button and switch debouncing logic |
 | [`DisplayMultiplexer.v`](Code/DisplayMultiplexer.v) | Digit scanner for multiplexed 7-segment output |
 | [`SevenSegmentDecoder.v`](Code/SevenSegmentDecoder.v) | BCD digit to 7-segment encoding |
-| `ClockDivider.v` | Clock divider for slow display refresh |
+| [`ClockDivider.v`](Code\clk_divider.v) | Clock divider for slow display refresh |
 
 ---
 
