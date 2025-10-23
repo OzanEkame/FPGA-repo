@@ -52,8 +52,8 @@ All logic is implemented purely in **Verilog** — no processors or firmware.
 
 | File | Description |
 |:--|:--|
-| [`TopLevelGame.v`](rtl/TopLevelGame.v) | Main game logic – FSM, random generation, level control, LED feedback |
-| [`BinaryToBCD_12bit.v`](rtl/BinaryToBCD_12bit.v) | Binary-to-BCD conversion for display |
+| [`TopLevelGame.v`](Code/TopLevelGame.v) | Main game logic – FSM, random generation, level control, LED feedback |
+| [`BinaryToBCD_12bit.v`](Code/BinaryToBCD_12bit.v) | Binary-to-BCD conversion for display |
 | [`Debounce.v`](rtl/Debounce.v) | Button and switch debouncing logic |
 | [`DisplayMultiplexer.v`](rtl/DisplayMultiplexer.v) | Digit scanner for multiplexed 7-segment output |
 | [`SevenSegmentDecoder.v`](rtl/SevenSegmentDecoder.v) | BCD digit to 7-segment encoding |
