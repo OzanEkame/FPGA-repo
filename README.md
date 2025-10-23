@@ -112,16 +112,6 @@ All logic is implemented purely in **Verilog** — no processors or firmware.
 
 ---
 
-## Demo
-
-
-
-```
-![Nexys A7 Binary Conversion Game Demo](Docs/demo.jpg)
-```
-
----
-
 ## License
 
 Released under the **MIT License**.  
