@@ -54,9 +54,9 @@ All logic is implemented purely in **Verilog** — no processors or firmware.
 |:--|:--|
 | [`TopLevelGame.v`](Code/TopLevelGame.v) | Main game logic – FSM, random generation, level control, LED feedback |
 | [`BinaryToBCD_12bit.v`](Code/BinaryToBCD_12bit.v) | Binary-to-BCD conversion for display |
-| [`Debounce.v`](rtl/Debounce.v) | Button and switch debouncing logic |
-| [`DisplayMultiplexer.v`](rtl/DisplayMultiplexer.v) | Digit scanner for multiplexed 7-segment output |
-| [`SevenSegmentDecoder.v`](rtl/SevenSegmentDecoder.v) | BCD digit to 7-segment encoding |
+| [`Debounce.v`](Code/Debounce.v) | Button and switch debouncing logic |
+| [`DisplayMultiplexer.v`](Code/DisplayMultiplexer.v) | Digit scanner for multiplexed 7-segment output |
+| [`SevenSegmentDecoder.v`](Code/SevenSegmentDecoder.v) | BCD digit to 7-segment encoding |
 | `ClockDivider.v` | Clock divider for slow display refresh |
 
 ---
@@ -65,9 +65,9 @@ All logic is implemented purely in **Verilog** — no processors or firmware.
 
 | Testbench | Purpose |
 |:--|:--|
-| [`BinaryToBCD_12bit_tb.v`](sim/BinaryToBCD_12bit_tb.v) | Validates Binary→BCD conversion |
-| [`DisplayMultiplexer_tb.v`](sim/DisplayMultiplexer_tb.v) | Tests digit scanning and refresh rate |
-| [`SevenSegmentDecoder_tb.v`](sim/SevenSegmentDecoder_tb.v) | Verifies segment encoding for 0–9 |
+| [`BinaryToBCD_12bit_tb.v`](Code/BinaryToBCD_12bit_tb.v) | Validates Binary→BCD conversion |
+| [`DisplayMultiplexer_tb.v`](Code/DisplayMultiplexer_tb.v) | Tests digit scanning and refresh rate |
+| [`SevenSegmentDecoder_tb.v`](Code/SevenSegmentDecoder_tb.v) | Verifies segment encoding for 0–9 |
 | `TopLevelGame_tb.v` | Simulates entire game logic integration |
 
 ---
@@ -114,7 +114,7 @@ All logic is implemented purely in **Verilog** — no processors or firmware.
 
 ## Demo
 
-Add a picture or video of your working board here:
+
 
 ```
 ![Nexys A7 Binary Conversion Game Demo](docs/demo_photo.jpg)
