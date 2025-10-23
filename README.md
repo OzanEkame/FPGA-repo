@@ -1,41 +1,111 @@
-# FPGA Binary-Conversion Game (Verilog, 100 MHz)
+FPGA Binary Conversion Game (Verilog, 100 MHz)
 
-A hardware game on FPGA using **FSM logic**, **debounced inputs**, **LFSR pseudo-random prompts**, and **Binary→BCD** with **multiplexed 7-segment display**.
+A hardware logic game built on the Xilinx Nexys A7 FPGA using FSM control, debounced inputs, an LFSR pseudo-random generator, and Binary→BCD conversion with a multiplexed 7-segment display.
 
-## Features
-- Finite State Machine: Idle → Prompt → Input → Check → Score/Timeout → Next
-- **Debounce** for buttons/switches (synchronous, 100 MHz)
-- **LFSR PRNG** (taps: [fill taps]) to generate random target numbers
-- **Binary→BCD** conversion (double-dabble) for score/time output
-- **7-segment multiplexing** (N digits @ ~1 kHz refresh, no ghosting)
+Overview
 
-## Quick Start
-1. Open project in **Vivado** (or your tool).
-2. Board: [FPGA board name].
-3. Constraints: `constraints/board.xdc` (100 MHz `CLK`, pin map).
-4. Build → Program device.
+The Binary Conversion Game displays a random decimal number on the 7-segment display.
+The player must toggle the FPGA switches to input its binary equivalent, then press the OK button to check their answer.
+All game logic is handled purely in hardware with Verilog—no processors, no firmware.
 
-## I/O Map
-- Inputs: BTN_UP (increment), BTN_OK (submit), SW[3:0] (answer bits)
-- Outputs: SEG[6:0], AN[n], LEDs (state, life, or error)
-- Clock: 100 MHz
+Features
 
-## Design
-- `rtl/fsm.sv` — game states & timers  
-- `rtl/debounce.sv` — 2-FF sync + integrator  
-- `rtl/lfsr.sv` — 16-bit LFSR PRNG (seedable)  
-- `rtl/bin2bcd.sv` — binary to BCD for 7-segment  
-- `rtl/sevenseg_mux.sv` — digit scan & segment encode
+Finite State Machine (FSM): Controls game flow — Idle → Display → Input → Check → Next
 
-## Simulation
-- `sim/tb_fsm.sv`, `sim/tb_debounce.sv`, `sim/tb_lfsr.sv`
-- Waveforms: `sim/waves/…` (screenshots in `docs/`)
+Debounce Logic: Filters switch and button noise (synchronous at 100 MHz)
 
-## Screens & Demo
-- ![Board](docs/board.jpg)
-- ![Waveform](docs/wave_prng.png)
-- ![7-seg](docs/sevenseg.gif)
+LFSR PRNG: Generates pseudo-random decimal numbers for each round
 
-## Notes
-- Clock: **100 MHz** (divide as needed for 1 kHz display mux & button sampling).
-- LFSR taps: [list taps]; period 2^N−1 when nonzero seed.
+Binary→BCD Conversion: Double-dabble algorithm for decimal output
+
+7-Segment Multiplexing: Multi-digit scanning (~1 kHz) for stable, ghost-free display
+
+Quick Start
+
+Open the project in Vivado (or your preferred HDL tool).
+
+Board: Xilinx Nexys A7 (100 MHz clock)
+
+Constraints: constraints/board.xdc (define 100 MHz CLK and I/O pin map).
+
+Build → Generate bitstream → Program device.
+
+Play: the display shows a number; use switches to input its binary equivalent and press OK.
+
+I/O Map
+Signal	    Direction	     Description
+SW[3:0]	    Input	         Binary input bits 
+BTN_OK	    Input	         Submit/check button
+SEG[6:0]	  Output	       7-segment LED segments
+AN[n]	      Output	       Digit enable lines
+LEDs	      Output	       Optional indicators (correct/error/state)
+CLK	        Input	         100 MHz system clock
+
+Design Files
+File	                  Description
+TopLevelGame.v	        Main game FSM and module integration    
+LFSR.v	                16-bit pseudo-random number generator   
+Debounce.v	            Two-flip-flop synchronizer + integrator
+BinaryToBCD_12bit.v	    Binary-to-BCD conversion (double-dabble)
+DisplayMultiplexer.v    7-segment display multiplexer
+SevenSegmentDecoder.v 	Binary to 7-segment code encoder
+
+All core modules are tested and verified through simulation.
+
+Simulation Files
+Testbench	                Purpose
+TopLevelGame_tb.v	        Game FSM and integration test
+Debounce_tb.v	            Debounce behavior verification
+BinaryToBCD_12bit_tb.v	  Conversion validation
+DisplayMultiplexer_tb.v	  Refresh and digit cycle testing
+SevenSegmentDecoder_tb.v	Segment pattern verification
+
+Waveform results can be viewed in /sim/waves/.
+
+Logic Diagram
++--------------------+
+|    LFSR (Random)   |
++---------+----------+
+          |
+          v
+   +------+------+
+   |   FSM Logic  |  <-- Debounced inputs
+   +------+------+
+          |
+          v
++---------+----------+
+| BinaryToBCD_12bit  |
++---------+----------+
+          |
+          v
+  +-------+-------+
+  | Display MUX   |
+  +-------+-------+
+          |
+          v
+  +-------+-------+
+  |  7-Segment LED |
+  +---------------+
+
+Notes
+
+Clock frequency: 100 MHz
+
+Display refresh rate: ~1 kHz
+
+Debounce sampling window: ~1 ms
+
+LFSR taps configurable for maximal sequence
+
+Entire design implemented in Verilog — no soft-core or CPU logic
+
+License
+
+Released under the MIT License.
+Free for educational and open-source use.
+
+Demo
+
+Add a picture of your working board here once ready:
+
+![Nexys A7 Binary Conversion Game Demo](docs/demo_photo.jpg)
